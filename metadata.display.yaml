@@ -105,24 +105,24 @@ spec:
               networkVariable: networks
               notConfigurable: false
               allowStaticIps: true
-        enable_tcp_443:
-          name: enable_tcp_443
-          title: Allow HTTPS traffic from the Internet
+        enable_tcp_443_80:
+          name: enable_tcp_443_80
+          title: Allow HTTP traffic from the Internet
           section: networking
           xGoogleProperty:
             type: ET_GCE_FIREWALL
             gceFirewall:
               networkVariable: networks
-        tcp_443_source_ranges:
-          name: tcp_443_source_ranges
-          title: Source IP ranges for HTTPS traffic
+        tcp_443_80_source_ranges:
+          name: tcp_443_80_source_ranges
+          title: Source IP ranges for HTTP traffic
           tooltip: 'Traffic is only allowed from sources within these IP address ranges. Use CIDR notation when entering ranges. <a href="https://cloud.google.com/compute/docs/networking#firewalls">Learn more</a>'
           placeholder: '0.0.0.0/0, 192.169.0.2/24'
           section: networking
           xGoogleProperty:
             type: ET_GCE_FIREWALL_RANGE
             gceFirewallRange:
-              firewallVariable: enable_tcp_443
+              firewallVariable: enable_tcp_443_80
         enable_tcp_5060:
           name: enable_tcp_5060
           title: Allow TCP port 5060 SIP traffic from the Internet
